@@ -60,7 +60,7 @@ function formatArg(args: object[], i: number) {
 
 function bddIt(stepType: string, strings: TemplateStringsArray, args: any[], step: Function) {
 	const text = `${stepType} ${strings.reduce((result, item, index) => result + item + formatArg(args, index), '')}`;
-	console.log(text);
+	//console.log(text);
 	if (step.length === args.length) {
 		it(text, () => step(...args));
 	} else if (step.length === args.length + 1) {
