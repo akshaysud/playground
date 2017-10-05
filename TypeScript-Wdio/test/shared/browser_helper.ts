@@ -24,7 +24,7 @@ export namespace BrowserHelper {
 
 		if ((!waitForSelector) || (waitForSelector.toLowerCase() === 'body')) { throw new Error('You need to provide a valid selector'); }
 
-		browser.url(url);
+		browser.url(`/${url}`);
 		browser.waitForExist(waitForSelector, environmentData.timeout);
 		return BrowserHelper;
 	}
