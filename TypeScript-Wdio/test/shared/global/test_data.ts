@@ -1,9 +1,7 @@
-
 export interface IUserData {
 	email: string;
 	password: string;
 }
-
 
 export class UserData {
 
@@ -19,6 +17,3 @@ export class UserData {
 		return data;
 	}
 }
-
-
-
