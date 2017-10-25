@@ -29,6 +29,8 @@ export class WelcomePage {
 		const { myPageElements } = this;
 		const { email, password } = user;
 
+		if ((!user)) { throw new Error('You need to provide login credentials'); }
+
 		BrowserHelper.setValue(myPageElements.Email, email)
 			.setValue(myPageElements.Password, password);
 	}

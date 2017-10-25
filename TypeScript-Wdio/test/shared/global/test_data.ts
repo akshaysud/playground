@@ -9,8 +9,8 @@ export class UserData {
 
 		/// enter user credentials
 		const data = {
-			email: '',
-			password: ''
+			email: 'codeallthethings.30@gmail.com',
+			password: '#Password1'
 		};
 
 		console.log(`Test Data: ${JSON.stringify(data)}`);

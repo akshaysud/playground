@@ -15,6 +15,10 @@ export class HomePage {
 
 	myPageElements: IHomePageElements = new HomePageElements();
 
+	navigateToNewsFeed = (nextPage): void => {
+
+	}
+
 }
 
 export class HomePageAssertions {
