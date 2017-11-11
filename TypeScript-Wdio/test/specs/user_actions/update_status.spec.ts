@@ -11,7 +11,8 @@ const user = new User();
 
 describe('Update Status', () => {
 
-	const data = UserData.generateUserData();
+    const data = UserData.generateUserData();
+
 	beforeAll(function () {
 		console.log('Launch facebook');
 		BrowserHelper.navigate(login.loginUrl(), login.welcomePageElements.Email.selector);
@@ -19,7 +20,7 @@ describe('Update Status', () => {
 		login.welcomePage.clickLogin(user.homePageElements.SearchBar.selector);
 	});
 
-	given`I navigate to news feed`(() => user.homePageAssertions.verifyHomePage());
+	given`I navigate to news feed`(() => user.homePage.navigateToNewsFeed(user.homePageElements.SearchBar.selector))
 	when`I select the status box`(() => user.homePage.selectStatusBox());
 	//	and``
 
