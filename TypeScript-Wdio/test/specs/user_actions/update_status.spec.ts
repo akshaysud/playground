@@ -14,7 +14,7 @@ describe('Update Status', () => {
     const data = UserData.generateUserData();
 
 	beforeAll(function () {
-		console.log('Launch facebook');
+		console.log('Log in to facebook');
 		BrowserHelper.navigate(login.loginUrl(), login.welcomePageElements.Email.selector);
 		login.welcomePage.enterUserCredentials(data);
 		login.welcomePage.clickLogin(user.homePageElements.SearchBar.selector);
@@ -22,7 +22,8 @@ describe('Update Status', () => {
 
 	given`I navigate to news feed`(() => user.homePage.navigateToNewsFeed(user.homePageElements.SearchBar.selector))
 	when`I select the status box`(() => user.homePage.selectStatusBox());
-	//	and``
-
+        and`I set my status message ${data.status}`((statusMessage) => user.homePage.postStatusMessage(statusMessage));
+    then`My status message is successfully updated`(() => user.homePageAssertions.verifyStatusIsUpdated());
+    
 	browser.end();
 });

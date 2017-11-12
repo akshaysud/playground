@@ -5,13 +5,18 @@ export interface IAttribute {
 	value?: string;
 }
 
-
 export interface IElement {
 	selector: string;
 	requiredFieldText?: string;
 	conditionalText?: string;
 	conditionalErrorMessage?: string;
 }
+
+export interface IReferenceElement {
+	selector: string;
+	getSelector(reference: string): IElement;
+}
+
 
 export interface IElementWithAttributes<T> extends IElement {
 	attributes?: T;

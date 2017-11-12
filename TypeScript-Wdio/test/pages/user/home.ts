@@ -1,13 +1,16 @@
-import { BrowserHelper, IElement } from '../../shared/browser_helper';
+import { BrowserHelper, IElement, IReferenceElement } from '../../shared/browser_helper';
 
 export interface IHomePageElements {
 	SearchBar: IElement;
 	NewsFeed: IElement;
 	StatusBox: IElement;
-	StatuxBoxDialogView: IElement;
+	PostStatus: IElement;
+	StatusBoxDialogView: IElement;
+	StatusBoxInput: IElement;
 	NotificationPermissionPopUp: IElement;
 	NotificationCancelButton: IElement;
-	
+	LikeLink: IElement;
+	JustNow: IReferenceElement;
 }
 
 export class HomePageElements implements IHomePageElements {
@@ -24,7 +27,7 @@ export class HomePageElements implements IHomePageElements {
 		selector: '[data-attachment-type="STATUS"]'
 	};
 
-	readonly StatuxBoxDialogView: IElement = {
+	readonly StatusBoxDialogView: IElement = {
 		selector: '#pagelet_composer > div > div[role="dialog"]'
 	};
 
@@ -35,6 +38,27 @@ export class HomePageElements implements IHomePageElements {
 	readonly NotificationCancelButton: IElement = {
 		selector: 'a[action="cancel"]'
 	};
+
+	readonly StatusBoxInput: IElement = {
+		selector: '[data-testid="status-attachment-mentions-input"]'
+	}
+
+	readonly PostStatus: IElement = {
+		selector: 'button[data-testid="react-composer-post-button"]'
+	};
+
+	readonly LikeLink: IElement = {
+		selector: '[data-testid="fb-ufi-likelink"]'
+	};
+
+	readonly JustNow: IReferenceElement = {
+		selector: '[data-utime="${reference}"]',
+		getSelector(reference: string): IElement {
+            var newElem = Object.assign(Object.create(this), this);
+            newElem.selector = newElem.selector.replace('${reference}', reference);
+            return newElem;
+        }
+	}
 }
 
 export class HomePage {
@@ -52,10 +76,18 @@ export class HomePage {
 
 	selectStatusBox = (): void => {
 		const { myPageElements } = this;
-		BrowserHelper.waitForVisible(myPageElements.StatusBox);
-		BrowserHelper.click(myPageElements.StatusBox, myPageElements.StatuxBoxDialogView.selector); 
+		BrowserHelper.waitForVisible(myPageElements.StatusBox)
+			.click(myPageElements.StatusBox, myPageElements.StatusBoxDialogView.selector); 
 	}
 
+	postStatusMessage = (message): void => {
+		const { myPageElements } = this;
+		var date = new Date();
+		let reference = date.getTime().toString().substring(0,10);
+		BrowserHelper.waitForVisible(myPageElements.StatusBoxInput)
+			.setValue(myPageElements.StatusBoxInput, message)
+			.click(myPageElements.PostStatus, myPageElements.LikeLink.selector);
+	}
 }
 
 export class HomePageAssertions {
@@ -65,6 +97,14 @@ export class HomePageAssertions {
 	verifyHomePage = (): void => {
 		const { myPageElements } = this;
 		expect(BrowserHelper.isVisible(myPageElements.SearchBar)).toBeTruthy();
+	}
+
+	verifyStatusIsUpdated= (): void => {
+		const { myPageElements } = this;
+		expect(BrowserHelper.isVisible(myPageElements.LikeLink)).toBeTruthy();
+		// var date = new Date();
+		// let reference = date.getTime().toString().substring(0,10);
+		// expect(BrowserHelper.isVisible(myPageElements.JustNow.getSelector(reference))).toBeTruthy();
 	}
 }
 
