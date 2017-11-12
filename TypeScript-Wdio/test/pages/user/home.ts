@@ -105,6 +105,7 @@ export class HomePageAssertions {
 		// var date = new Date();
 		// let reference = date.getTime().toString().substring(0,10);
 		// expect(BrowserHelper.isVisible(myPageElements.JustNow.getSelector(reference))).toBeTruthy();
+		//Bounce ideas off Abhishek
 	}
 }
 
