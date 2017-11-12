@@ -17,7 +17,6 @@ export interface IReferenceElement {
 	getSelector(reference: string): IElement;
 }
 
-
 export interface IElementWithAttributes<T> extends IElement {
 	attributes?: T;
 }

@@ -54,10 +54,10 @@ export class HomePageElements implements IHomePageElements {
 	readonly JustNow: IReferenceElement = {
 		selector: '[data-utime="${reference}"]',
 		getSelector(reference: string): IElement {
-            var newElem = Object.assign(Object.create(this), this);
-            newElem.selector = newElem.selector.replace('${reference}', reference);
-            return newElem;
-        }
+			var newElem = Object.assign(Object.create(this), this);
+			newElem.selector = newElem.selector.replace('${reference}', reference);
+			return newElem;
+		}
 	}
 }
 
@@ -67,8 +67,7 @@ export class HomePage {
 
 	navigateToNewsFeed = (nextPage): void => {
 		const { myPageElements } = this;
-		if (BrowserHelper.waitForVisible(myPageElements.NotificationCancelButton))
-		{
+		if (BrowserHelper.waitForVisible(myPageElements.NotificationCancelButton)) {
 			BrowserHelper.click(myPageElements.NotificationCancelButton, myPageElements.NewsFeed.selector);
 		}
 		BrowserHelper.click(myPageElements.NewsFeed, nextPage);
@@ -77,13 +76,13 @@ export class HomePage {
 	selectStatusBox = (): void => {
 		const { myPageElements } = this;
 		BrowserHelper.waitForVisible(myPageElements.StatusBox)
-			.click(myPageElements.StatusBox, myPageElements.StatusBoxDialogView.selector); 
+			.click(myPageElements.StatusBox, myPageElements.StatusBoxDialogView.selector);
 	}
 
 	postStatusMessage = (message): void => {
 		const { myPageElements } = this;
 		var date = new Date();
-		let reference = date.getTime().toString().substring(0,10);
+		let reference = date.getTime().toString().substring(0, 10);
 		BrowserHelper.waitForVisible(myPageElements.StatusBoxInput)
 			.setValue(myPageElements.StatusBoxInput, message)
 			.click(myPageElements.PostStatus, myPageElements.LikeLink.selector);
@@ -99,7 +98,7 @@ export class HomePageAssertions {
 		expect(BrowserHelper.isVisible(myPageElements.SearchBar)).toBeTruthy();
 	}
 
-	verifyStatusIsUpdated= (): void => {
+	verifyStatusIsUpdated = (): void => {
 		const { myPageElements } = this;
 		expect(BrowserHelper.isVisible(myPageElements.LikeLink)).toBeTruthy();
 		//TODO: Make the logic below work - the solution for now is not great. Leaving the dead code here as a reminder
