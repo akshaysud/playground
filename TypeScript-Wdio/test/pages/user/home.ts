@@ -21,11 +21,11 @@ export class HomePageElements implements IHomePageElements {
 	}
 
 	readonly StatusBox: IElement = {
-		selector: '[data-testid="status-attachment-mentions-input"]'
+		selector: '[data-attachment-type="STATUS"]'
 	};
 
 	readonly StatuxBoxDialogView: IElement = {
-		selector: 'div[role="dialog"]#js_e'
+		selector: '#pagelet_composer > div > div[role="dialog"]'
 	};
 
 	readonly NotificationPermissionPopUp: IElement = {
@@ -47,12 +47,12 @@ export class HomePage {
 		{
 			BrowserHelper.click(myPageElements.NotificationCancelButton, myPageElements.NewsFeed.selector);
 		}
-	//	BrowserHelper.click(myPageElements.NewsFeed, nextPage);
+		BrowserHelper.click(myPageElements.NewsFeed, nextPage);
 	}
 
 	selectStatusBox = (): void => {
 		const { myPageElements } = this;
-		//browser.debug();
+		BrowserHelper.waitForVisible(myPageElements.StatusBox);
 		BrowserHelper.click(myPageElements.StatusBox, myPageElements.StatuxBoxDialogView.selector); 
 	}
 
