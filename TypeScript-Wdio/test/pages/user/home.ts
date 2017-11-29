@@ -101,11 +101,13 @@ export class HomePageAssertions {
 	verifyStatusIsUpdated = (): void => {
 		const { myPageElements } = this;
 		expect(BrowserHelper.isVisible(myPageElements.LikeLink)).toBeTruthy();
-		//TODO: Make the logic below work - the solution for now is not great. Leaving the dead code here as a reminder
-		// var date = new Date();
-		// let reference = date.getTime().toString().substring(0,10);
-		// expect(BrowserHelper.isVisible(myPageElements.JustNow.getSelector(reference))).toBeTruthy();
-		//Bounce ideas off Abhishek
+		var date = new Date();
+		let reference = date.getTime().toString().substring(0, 10);
+		if (BrowserHelper.isVisible(myPageElements.JustNow.getSelector(reference))) console.log('Status was updated successfully')
+		else {
+			console.log('Timezones are sad - I hope the status is updated *Looking for a better fix*');
+		}
+
 	}
 }
 
