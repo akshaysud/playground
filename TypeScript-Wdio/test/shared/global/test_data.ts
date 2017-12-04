@@ -4,6 +4,7 @@ export interface IUserData {
 	email: string;
 	password: string;
 	status: string;
+	chatMessage: string;
 }
 
 export class UserData {
@@ -12,12 +13,13 @@ export class UserData {
 		let _chance = new chance();
 
 		const data = {
-			email: '',
+			email: 'codeallthethings.30@gmail.com',
 			password: '',
-			status: 'Status' + _chance.string({
+			status: 'Let\s talk about test baby :)	' + _chance.string({
 				pool: '123456789',
 				length: 8
-			})
+			}),
+			chatMessage: 'Hey you!'
 		}
 
 		console.log(`Test Data: ${JSON.stringify(data)}`);
