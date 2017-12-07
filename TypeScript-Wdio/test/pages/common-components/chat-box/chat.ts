@@ -36,7 +36,6 @@ export class ChatBoxElements implements IChatBoxElements {
 	readonly MessageStatus: IElement = {
 		selector: 'span[class="_5yl5"]'
 	}
-
 }
 
 export class ChatBox {

@@ -39,4 +39,3 @@ export class WelcomePage {
 		BrowserHelper.click(this.myPageElements.Login, nextPage);
 	}
 }
-
