@@ -123,5 +123,15 @@ export namespace BrowserHelper {
 		}
 		return BrowserHelper;
 	}
+
+	export function findElements(element: IElement) {
+		return browser.elements(element.selector);
+	}
+
+	export function performNativeAction(action) {
+		browser.keys(action);
+		browser.pause(3000);
+		return BrowserHelper;
+	}
 }
 
