@@ -28,7 +28,7 @@ describe('Send chat message to a friend', () => {
 
 	when`I select a friend to chat with`(() => common.chatBox.selectHumanFromChatList())
 	and`I send my chat message ${data.chatMessage}`((message) => common.chatBox.sendDirectMessage(message));
-	// then`My message is delivered successfully`
+	then`My message is delivered successfully`(() => common.chatBoxAssertions.verifyMessageStatus());
 
 	browser.end();
 });

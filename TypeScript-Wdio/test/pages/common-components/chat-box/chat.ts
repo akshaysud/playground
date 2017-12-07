@@ -6,6 +6,7 @@ export interface IChatBoxElements {
 	BuddyId: IElement;
 	ChatBox: IElement;
 	ChatBoxTextField: IElement;
+	MessageStatus: IElement;
 }
 
 export class ChatBoxElements implements IChatBoxElements {
@@ -31,6 +32,11 @@ export class ChatBoxElements implements IChatBoxElements {
 	readonly ChatBoxTextField: IElement = {
 		selector: 'div.notranslate._5rpu'
 	}
+
+	readonly MessageStatus: IElement = {
+		selector: 'span[class="_5yl5"]'
+	}
+
 }
 
 export class ChatBox {
@@ -62,6 +68,11 @@ export class ChatBoxAssertions {
 	verifyBuddyList = (): void => {
 		const { myPageElements } = this;
 		expect(BrowserHelper.isVisible(myPageElements.BuddyListView)).toBeTruthy();
+	}
+
+	verifyMessageStatus = (): void => {
+		const { myPageElements } = this;
+		expect(BrowserHelper.isVisible(myPageElements.MessageStatus)).toBeTruthy();
 	}
 }
 
