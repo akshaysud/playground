@@ -24,7 +24,7 @@ export class HomePageElements implements IHomePageElements {
 	}
 
 	readonly StatusBox: IElement = {
-		selector: '[data-attachment-type="STATUS"]'
+		selector: '//*[@id="rc.u_fetchstream_1_3"]/div[1]/span[1]/a'
 	};
 
 	readonly StatusBoxDialogView: IElement = {
@@ -110,4 +110,3 @@ export class HomePageAssertions {
 		}
 	}
 }
-
