@@ -75,7 +75,6 @@ export class HomePage {
 
 	selectStatusBox = (): void => {
 		const { myPageElements } = this;
-		browser.debug();
 		BrowserHelper.waitForVisible(myPageElements.StatusBox)
 			.click(myPageElements.StatusBox, myPageElements.StatusBoxDialogView.selector);
 	}
