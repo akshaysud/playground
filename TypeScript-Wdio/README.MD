@@ -34,3 +34,11 @@ npm run tests
 # WebdriverIO doco
 
 http://webdriver.io/
+
+# To-do 
+1. React to posts 
+2. Add friend/unfriend
+3. Post a poll
+4. Vote on the poll 
+5. Post a photo 
+6. Post an album 
