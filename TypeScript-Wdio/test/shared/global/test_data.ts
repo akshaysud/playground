@@ -13,16 +13,18 @@ export class UserData {
 		let _chance = new chance();
 
 		const data = {
-			email: 'codeallthethings.30@gmail.com',
+			email: '',
 			password: '',
 			status: 'Let\s talk about test baby :)	' + _chance.string({
 				pool: '123456789',
 				length: 8
 			}),
-			chatMessage: 'Hey you!'
+			chatMessage: 'Automated Message - not sent by human'
 		}
 
 		console.log(`Test Data: ${JSON.stringify(data)}`);
 		return data;
 	}
+
+	static friendProfileId : string = 'abhishekkulkarni87';
 }
