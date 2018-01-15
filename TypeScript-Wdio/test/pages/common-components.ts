@@ -1,5 +1,5 @@
 import { ChatBoxElements, ChatBox, ChatBoxAssertions } from '../pages/common-components/chat-box/chat';
-import { FriendProfileElements } from '../pages/common-components/friend-profile/friend_profile';
+import { FriendProfileElements, FriendProfile, FriendProfileAssertions } from '../pages/common-components/friend-profile/friend_profile';
 
 export class CommonComponents {
 
@@ -7,4 +7,6 @@ export class CommonComponents {
 	public chatBox = new ChatBox();
 	public chatBoxAssertions = new ChatBoxAssertions();
 	public friendProfileElements = new FriendProfileElements();
+	public friendProfile = new FriendProfile()
+	public friendProfileAssertions = new FriendProfileAssertions();
 }
