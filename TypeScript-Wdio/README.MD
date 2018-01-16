@@ -37,8 +37,7 @@ http://webdriver.io/
 
 # To-do 
 1. React to posts 
-2. Add friend/unfriend
-3. Post a poll
-4. Vote on the poll 
-5. Post a photo 
-6. Post an album 
+2. Post a poll
+3. Vote on the poll 
+4. Post a photo 
+5. Post an album 
