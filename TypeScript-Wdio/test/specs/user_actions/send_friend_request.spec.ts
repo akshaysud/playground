@@ -27,6 +27,7 @@ describe('Send a friend request', () => {
 
 	afterAll(function () {
 		console.log('Cancel Friend Request');
+		//ToDo: Add cleanup steps
 	});
 
 	browser.end();
