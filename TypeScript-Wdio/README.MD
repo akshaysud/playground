@@ -16,11 +16,6 @@
 `const data = {
 			email: 'xxxxx',
 			password: 'xxxxx',
-			status: 'Let\s talk about test baby :)	' + _chance.string({
-				pool: '123456789',
-				length: 8
-			}),
-			chatMessage: 'Automated Message - not sent by human'
 		}
 `
 
