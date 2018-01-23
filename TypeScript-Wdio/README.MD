@@ -11,6 +11,19 @@
 1.	Start selenium `npm run selenium -- start`
 1.	Test if the setup works my running `npm run tests`
 
+*Note* - For test data, please enter your username and password in test_data.ts:
+
+`const data = {
+			email: 'xxxxx',
+			password: 'xxxxx',
+			status: 'Let\s talk about test baby :)	' + _chance.string({
+				pool: '123456789',
+				length: 8
+			}),
+			chatMessage: 'Automated Message - not sent by human'
+		}
+`
+
 # Setting up Selenium Grid (*Optional*)
 
 1.	`npm run selenium-hub`
