@@ -44,7 +44,7 @@ npm run tests
 http://webdriver.io/
 
 # To-do 
-1. React to posts 
+1. React to posts - In Progress
 2. Post a poll
 3. Vote on the poll 
 4. Post a photo 
