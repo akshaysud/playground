@@ -21,14 +21,9 @@ describe('Send a friend request', () => {
 	});
 
 	given`I navigate to news feed`(() => user.homePage.navigateToNewsFeed(user.homePageElements.SearchBar.selector))
-		and`I navigate to my friend's profile`(() => BrowserHelper.navigate(UserData.friendProfileId, common.friendProfileElements.AddFriend.selector));
-	when`I click the Add Friend button`(() => common.friendProfile.addFriend())
-	then`The friend request is sent successfully`(() => common.friendProfileAssertions.verifyFriendRequestSent())
-
-	afterAll(function () {
-		console.log('Cancel Friend Request');
-		//ToDo: Add cleanup steps
-	});
+		and`I navigate to my friend's profile`(() => BrowserHelper.navigate(UserData.friendProfileId, common.friendProfilePageElements.ProfileActionItems.selector));
+	when`I click the Add Friend button`(() => common.friendProfilePage.addFriend());
+	then`The friend request is sent successfully`(() => common.friendProfilePageAssertions.verifyFriendRequestSent());
 
 	browser.end();
 });
