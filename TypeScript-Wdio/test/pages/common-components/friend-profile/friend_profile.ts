@@ -35,7 +35,6 @@ export class FriendProfilePage {
 		//***Fail safe - if a friend request has already been sent*** 
 		if (!BrowserHelper.isVisible(myPageElements.AddFriend))
 		{
-			console.log('If loop time');
 			this.cancelFriendRequest();
 		}
 		BrowserHelper.waitForVisible(myPageElements.AddFriend)
