@@ -133,5 +133,9 @@ export namespace BrowserHelper {
 		browser.pause(3000);
 		return BrowserHelper;
 	}
+
+	export function isExisting(element: IElement) {
+		return browser.isExisting(element.selector);
+	}
 }
 
