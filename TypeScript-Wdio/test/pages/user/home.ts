@@ -68,7 +68,7 @@ export class HomePage {
 
 	navigateToNewsFeed = (nextPage): void => {
 		const { myPageElements } = this;
-		if (BrowserHelper.waitForVisible(myPageElements.NotificationCancelButton)) {
+		if (BrowserHelper.isExisting(myPageElements.NotificationCancelButton)) {
 			BrowserHelper.click(myPageElements.NotificationCancelButton, myPageElements.NewsFeed.selector);
 		}
 		BrowserHelper.click(myPageElements.NewsFeed, nextPage);
