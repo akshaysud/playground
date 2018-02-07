@@ -31,7 +31,7 @@
 		"selenium": "node node_modules/selenium-standalone/bin/selenium-standalone",
 		"selenium-hub": "node node_modules/selenium-standalone/bin/selenium-standalone start -- -role hub",
 		"selenium-node": "node node_modules/selenium-standalone/bin/selenium-standalone start -- -role node -hub http://localhost:4444/grid/register -browser browserName=chrome,maxInstances=5",
-		"all_acceptance": "node node_modules/webdriverio/bin/wdio --specs",
+		"all_acceptance": "node node_modules/webdriverio/bin/wdio --specs --reporters spec --spec",
 		"test": "node node_modules/webdriverio/bin/wdio --reporters spec --spec",
 		"tests": "npm run compile && npm run all_acceptance"
 	},
