@@ -4,14 +4,26 @@ import { BrowserHelper, IElement, IReferenceElement } from '../shared/browser_he
 
 
 export interface ICommonElements {
-	Reactions: IElement;
-	
+	React: IElement;
+	Love: IElement;	
+}
+
+enum Reactions {
+	Like = 1,
+	Love,
+	Haha,
+	Sad,
+	Angry
 }
 
 export class CommonElements implements ICommonElements {
 
-	readonly Reactions: IElement = {
+	readonly React: IElement = {
 		selector: '[data-testid="fb-ufi-likelink"]'
+	};
+
+	readonly Love: IElement = {
+		selector: `div > div[data-testid="UFIReactionsMenu" ] > span[data-testid="reaction_${Reactions.Love}"]`
 	};
 
 }
@@ -30,10 +42,13 @@ export class CommonComponents {
 
 	reactToPost = (): void => {
 		const { myPageElements } = this;
-		BrowserHelper.waitForVisible(myPageElements.Reactions)
-			.scrollToElement(myPageElements.Reactions)
-			.moveToObject(myPageElements.Reactions);
-			browser.debug();
+		BrowserHelper.waitForVisible(myPageElements.React)
+			.scrollToElement(myPageElements.React)
+			.moveToObject(myPageElements.React,  myPageElements.Love.selector);
+		
+		if (BrowserHelper.waitForVisible(myPageElements.Love))
+		{
+			BrowserHelper.click(myPageElements.Love, myPageElements.React.selector)
+		}
 	}
-	
 }

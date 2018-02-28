@@ -138,8 +138,10 @@ export namespace BrowserHelper {
 		return browser.isExisting(element.selector);
 	}
 
-	export function moveToObject(element: IElement) {
-		return browser.moveToObject(element.selector);
+	export function moveToObject(element: IElement, waitForSelector) {
+		const environmentData = new EnvironmentData();
+		 browser.moveToObject(element.selector);
+		 browser.waitForVisible(waitForSelector, environmentData.timeout);
 	}
 }
 
