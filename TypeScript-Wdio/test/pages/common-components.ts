@@ -5,7 +5,11 @@ import { BrowserHelper, IElement, IReferenceElement } from '../shared/browser_he
 
 export interface ICommonElements {
 	React: IElement;
-	Love: IElement;	
+	Like: IElement;
+	Love: IElement;
+	Haha: IElement;
+	Sad: IElement;
+	Angry: IElement;	
 }
 
 enum Reactions {
@@ -22,8 +26,24 @@ export class CommonElements implements ICommonElements {
 		selector: '[data-testid="fb-ufi-likelink"]'
 	};
 
+	readonly Like: IElement = {
+		selector: `div > div[data-testid="UFIReactionsMenu" ] > span[data-testid="reaction_${Reactions.Like}"]`
+	};
+
 	readonly Love: IElement = {
 		selector: `div > div[data-testid="UFIReactionsMenu" ] > span[data-testid="reaction_${Reactions.Love}"]`
+	};
+
+	readonly Haha: IElement = {
+		selector: `div > div[data-testid="UFIReactionsMenu" ] > span[data-testid="reaction_${Reactions.Haha}"]`
+	};
+
+	readonly Sad: IElement = {
+		selector: `div > div[data-testid="UFIReactionsMenu" ] > span[data-testid="reaction_${Reactions.Sad}"]`
+	};
+
+	readonly Angry: IElement = {
+		selector: `div > div[data-testid="UFIReactionsMenu" ] > span[data-testid="reaction_${Reactions.Angry}"]`
 	};
 }
 
@@ -39,7 +59,7 @@ export class CommonComponents {
 	myPageElements: ICommonElements = new CommonElements();
 
 
-	reactToPost = (): void => {
+	reactToPost = (reaction: string): void => {
 		const { myPageElements } = this;
 		BrowserHelper.waitForVisible(myPageElements.React)
 			.scrollToElement(myPageElements.React)
@@ -47,7 +67,31 @@ export class CommonComponents {
 		
 		if (BrowserHelper.waitForVisible(myPageElements.Love))
 		{
-			BrowserHelper.click(myPageElements.Love, myPageElements.React.selector)
+			switch (reaction.toLocaleLowerCase()) {
+
+				case 'like':
+				BrowserHelper.click(myPageElements.Like, myPageElements.React.selector);
+				break;
+
+				case 'love':
+				BrowserHelper.click(myPageElements.Love, myPageElements.React.selector);
+				break;
+
+				case 'haha':
+				BrowserHelper.click(myPageElements.Haha, myPageElements.React.selector);
+				break;
+
+				case 'sad':
+				BrowserHelper.click(myPageElements.Sad, myPageElements.React.selector);
+				break;
+
+				case 'angry':
+				BrowserHelper.click(myPageElements.Angry, myPageElements.React.selector);
+				break;
+
+				default: 
+				throw new Error('You messed up :(')
+			}
 		}
 	}
 }

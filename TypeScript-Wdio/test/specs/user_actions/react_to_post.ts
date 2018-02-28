@@ -22,7 +22,8 @@ describe('React to post', () => {
 	});
 
 	given`I navigate to my profile`(() => user.homePage.navigateToMyProfile(user.userProfileElements.ProfileName.selector))
-	when`I react to the post`(() => common.reactToPost());
+	when`I react to the post`(() => common.reactToPost('Love'));
+	then``
 
 	browser.end();
 });
