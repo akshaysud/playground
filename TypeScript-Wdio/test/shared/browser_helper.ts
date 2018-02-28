@@ -137,5 +137,9 @@ export namespace BrowserHelper {
 	export function isExisting(element: IElement) {
 		return browser.isExisting(element.selector);
 	}
+
+	export function moveToObject(element: IElement) {
+		return browser.moveToObject(element.selector);
+	}
 }
 

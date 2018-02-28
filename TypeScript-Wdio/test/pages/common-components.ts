@@ -11,7 +11,7 @@ export interface ICommonElements {
 export class CommonElements implements ICommonElements {
 
 	readonly Reactions: IElement = {
-		selector: '#fbPhotoSnowliftLive-Reactions'
+		selector: '[data-testid="fb-ufi-likelink"]'
 	};
 
 }
@@ -29,10 +29,11 @@ export class CommonComponents {
 
 
 	reactToPost = (): void => {
-		browser.debug();
 		const { myPageElements } = this;
 		BrowserHelper.waitForVisible(myPageElements.Reactions)
-		//	.click(myPageElements.StatusBox, myPageElements.StatusBoxDialogView.selector);
+			.scrollToElement(myPageElements.Reactions)
+			.moveToObject(myPageElements.Reactions);
+			browser.debug();
 	}
 	
 }
