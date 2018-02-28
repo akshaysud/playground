@@ -25,7 +25,6 @@ export class CommonElements implements ICommonElements {
 	readonly Love: IElement = {
 		selector: `div > div[data-testid="UFIReactionsMenu" ] > span[data-testid="reaction_${Reactions.Love}"]`
 	};
-
 }
 
 export class CommonComponents {
