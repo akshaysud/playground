@@ -10,10 +10,3 @@ export class UserProfileElements implements IUserProfileElements {
 		selector: '[data-testid="profile_name_in_profile_page"]'
 	};
 }
-
-export class UserProfile {
-
-	myPageElements: IUserProfileElements = new UserProfileElements();
-
-	
-}
