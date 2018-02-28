@@ -6,12 +6,11 @@ import { Login } from '../../pages/login';
 import { User } from '../../pages/user';
 import { CommonComponents } from '../../pages/common-components';
 
-const environmentData = new EnvironmentData();
 const login = new Login();
 const user = new User();
 const common = new CommonComponents();
 
-describe('Update Status', () => {
+describe('React to post', () => {
 
 	const data = UserData.generateUserData();
 
