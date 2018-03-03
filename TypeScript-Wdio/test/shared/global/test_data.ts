@@ -5,6 +5,9 @@ export interface IUserData {
 	password: string;
 	status: string;
 	chatMessage: string;
+	pollTitle: string;
+	pollOptionOne: string;
+	pollOptionTwo: string;
 }
 
 export class UserData {
@@ -19,7 +22,10 @@ export class UserData {
 				pool: '123456789',
 				length: 8
 			}),
-			chatMessage: 'Automated Message - not sent by human'
+			chatMessage: 'Automated Message - not sent by human',
+			pollTitle: 'My awesome poll',
+			pollOptionOne: 'To be',
+			pollOptionTwo: 'Or not to be'
 		}
 
 		console.log(`Test Data: ${JSON.stringify(data)}`);

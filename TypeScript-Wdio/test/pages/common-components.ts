@@ -98,7 +98,7 @@ export class CommonComponents {
 		}
 	}
 
-	removeReaction = () => {
+	removeReaction = (): void => {
 		const { myPageElements } = this;
 		BrowserHelper.click(myPageElements.RemoveReaction, myPageElements.React.selector);
 	}
@@ -108,7 +108,7 @@ export class CommonComponentsAssertions {
 
 	myPageElements: ICommonElements = new CommonElements(); 
 
-	verifyReactionIsRecorded = () => {
+	verifyReactionIsRecorded = (): void => {
 
 		expect(BrowserHelper.isVisible(this.myPageElements.RemoveReaction))
 	}

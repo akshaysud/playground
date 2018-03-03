@@ -3,14 +3,11 @@ import { BrowserHelper } from '../../shared/browser_helper';
 import { UserData } from '../../shared/global/test_data';
 import { Login } from '../../pages/login';
 import { User } from '../../pages/user';
-import { CommonComponents, CommonComponentsAssertions } from '../../pages/common-components';
 
 const login = new Login();
 const user = new User();
-const common = new CommonComponents();
-const commonAssertions = new CommonComponentsAssertions();
 
-describe('React to post', () => {
+describe('Create a poll', () => {
 
 	const data = UserData.generateUserData();
 
@@ -21,14 +18,7 @@ describe('React to post', () => {
 		login.welcomePage.clickLogin(user.homePageElements.SearchBar.selector);
 	});
 
-	given`I navigate to my profile`(() => user.homePage.navigateToMyProfile(user.userProfileElements.ProfileName.selector))
-	when`I react to the post`(() => common.reactToPost('Love'));
-	then`My reaction is successfully recorded`(() => commonAssertions.verifyReactionIsRecorded());
-
-	browser.end();
-
-	afterAll(function () {
-		console.log('Cleaning up profile');
-		common.removeReaction();
-	});
+	given`I navigate to news feed`(() => user.homePage.navigateToNewsFeed(user.homePageElements.SearchBar.selector))
+	when`I add the poll with ${data}`((pollData) => user.homePage.addAPoll(pollData));
+	then`My poll is successfully published`(() => user.homePageAssertions.verifyContentIsUpdated());
 });

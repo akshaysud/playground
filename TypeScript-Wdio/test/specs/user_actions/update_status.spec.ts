@@ -23,7 +23,7 @@ describe('Update Status', () => {
 	given`I navigate to news feed`(() => user.homePage.navigateToNewsFeed(user.homePageElements.SearchBar.selector))
 	when`I select the status box`(() => user.homePage.selectStatusBox());
 		and`I set my status message ${data.status}`((statusMessage) => user.homePage.postStatusMessage(statusMessage));
-	then`My status message is successfully updated`(() => user.homePageAssertions.verifyStatusIsUpdated());
+	then`My status message is successfully updated`(() => user.homePageAssertions.verifyContentIsUpdated());
 
 	browser.end();
 });

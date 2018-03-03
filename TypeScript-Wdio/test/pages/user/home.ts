@@ -12,6 +12,9 @@ export interface IHomePageElements {
 	LikeLink: IElement;
 	JustNow: IReferenceElement;
 	ProfileIcon: IElement;
+	Poll: IElement;
+	PollOptionOne: IElement;
+	PollOptionTwo: IElement;
 }
 
 export class HomePageElements implements IHomePageElements {
@@ -65,6 +68,18 @@ export class HomePageElements implements IHomePageElements {
 	readonly ProfileIcon: IElement = {
 		selector: 'div[data-click="profile_icon"]'
 	}
+
+	readonly Poll: IElement = {
+		selector: 'div[data-tooltip-content="Poll"]'
+	}
+
+	readonly PollOptionOne: IElement = {
+		selector: 'input[placeholder="Option 1"]'
+	}
+
+	readonly PollOptionTwo: IElement = {
+		selector: 'input[placeholder="Option 2"]'
+	}
 }
 
 export class HomePage {
@@ -101,6 +116,20 @@ export class HomePage {
 			.setValue(myPageElements.StatusBoxInput, message)
 			.click(myPageElements.PostStatus, myPageElements.LikeLink.selector);
 	}
+
+	addAPoll = (data): void => {
+		const { myPageElements } = this;
+		const { pollTitle, pollOptionOne, pollOptionTwo } = data;
+
+		this.selectStatusBox();
+		browser.pause(5000); // Hack to let the react view completely enabled - makes me very sad
+		BrowserHelper.moveToObject(myPageElements.Poll, myPageElements.Poll.selector)
+			.click(myPageElements.Poll, myPageElements.PollOptionOne.selector)
+			.setValue(myPageElements.StatusBoxInput, pollTitle)
+			.setValue(myPageElements.PollOptionOne, pollOptionOne)
+			.setValue(myPageElements.PollOptionTwo, pollOptionTwo)
+			.click(myPageElements.PostStatus, myPageElements.LikeLink.selector);
+	}
 }
 
 export class HomePageAssertions {
@@ -112,7 +141,7 @@ export class HomePageAssertions {
 		expect(BrowserHelper.isVisible(myPageElements.SearchBar)).toBeTruthy();
 	}
 
-	verifyStatusIsUpdated = (): void => {
+	verifyContentIsUpdated = (): void => {
 		const { myPageElements } = this;
 		expect(BrowserHelper.isVisible(myPageElements.LikeLink)).toBeTruthy();
 
@@ -120,7 +149,7 @@ export class HomePageAssertions {
 		let reference = date.getTime().toString().substring(0, 10);
 		if (BrowserHelper.isVisible(myPageElements.JustNow.getSelector(reference))) console.log('Status was updated successfully')
 		else {
-			console.log('Timezones are sad - I hope the status is updated *Looking for a better fix*');
+			console.log('Timezones are sad - I hope the content is published *Looking for a better fix*');
 		}
 	}
 }
