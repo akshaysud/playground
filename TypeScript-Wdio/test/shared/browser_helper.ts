@@ -60,7 +60,7 @@ export namespace BrowserHelper {
 		return BrowserHelper;
 	}
 
-	export function setValue(element: IElement, value: string) {
+	export function  setValue(element: IElement, value: string) {
 		browser.setValue(element.selector, value);
 		return BrowserHelper;
 	}

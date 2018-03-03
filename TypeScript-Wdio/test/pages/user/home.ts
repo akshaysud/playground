@@ -142,7 +142,7 @@ export class HomePageAssertions {
 		expect(BrowserHelper.isVisible(myPageElements.SearchBar)).toBeTruthy();
 	}
 
-	verifyStatusIsUpdated = (): void => {
+	verifyContentIsUpdated = (): void => {
 		const { myPageElements } = this;
 		expect(BrowserHelper.isVisible(myPageElements.LikeLink)).toBeTruthy();
 
@@ -150,7 +150,7 @@ export class HomePageAssertions {
 		let reference = date.getTime().toString().substring(0, 10);
 		if (BrowserHelper.isVisible(myPageElements.JustNow.getSelector(reference))) console.log('Status was updated successfully')
 		else {
-			console.log('Timezones are sad - I hope the status is updated *Looking for a better fix*');
+			console.log('Timezones are sad - I hope the content is published *Looking for a better fix*');
 		}
 	}
 }
