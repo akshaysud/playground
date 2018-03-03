@@ -1,7 +1,6 @@
 import { given, when, then, and } from '../../speclight';
 import { BrowserHelper } from '../../shared/browser_helper';
 import { UserData } from '../../shared/global/test_data';
-import { EnvironmentData } from '../../shared/global/environment_data';
 import { Login } from '../../pages/login';
 import { User } from '../../pages/user';
 import { CommonComponents, CommonComponentsAssertions } from '../../pages/common-components';

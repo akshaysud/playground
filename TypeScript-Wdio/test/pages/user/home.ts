@@ -1,5 +1,4 @@
 import { BrowserHelper, IElement, IReferenceElement } from '../../shared/browser_helper';
-import { BADRESP } from 'dns';
 
 export interface IHomePageElements {
 	SearchBar: IElement;
