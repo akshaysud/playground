@@ -25,6 +25,7 @@ export class WelcomePage {
 
 	myPageElements: IWelcomePageElements = new WelcomePageElements();
 
+
 	enterUserCredentials = (user): void => {
 		const { myPageElements } = this;
 		const { email, password } = user;
@@ -37,5 +38,5 @@ export class WelcomePage {
 
 	clickLogin = (nextPage): void => {
 		BrowserHelper.click(this.myPageElements.Login, nextPage);
-	}
+	}	
 }

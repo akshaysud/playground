@@ -11,6 +11,7 @@ export interface IHomePageElements {
 	NotificationCancelButton: IElement;
 	LikeLink: IElement;
 	JustNow: IReferenceElement;
+	ProfileIcon: IElement;
 }
 
 export class HomePageElements implements IHomePageElements {
@@ -60,6 +61,10 @@ export class HomePageElements implements IHomePageElements {
 			return newElem;
 		}
 	}
+
+	readonly ProfileIcon: IElement = {
+		selector: 'div[data-click="profile_icon"]'
+	}
 }
 
 export class HomePage {
@@ -72,6 +77,14 @@ export class HomePage {
 			BrowserHelper.click(myPageElements.NotificationCancelButton, myPageElements.NewsFeed.selector);
 		}
 		BrowserHelper.click(myPageElements.NewsFeed, nextPage);
+	}
+
+	navigateToMyProfile = (nextPage): void => {
+		const { myPageElements } = this;
+		if (BrowserHelper.isExisting(myPageElements.NotificationCancelButton)) {
+			BrowserHelper.click(myPageElements.NotificationCancelButton, myPageElements.NewsFeed.selector);
+		}
+		BrowserHelper.click(myPageElements.ProfileIcon, nextPage);
 	}
 
 	selectStatusBox = (): void => {
