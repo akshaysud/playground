@@ -1,4 +1,5 @@
 import { BrowserHelper, IElement, IReferenceElement } from '../../shared/browser_helper';
+import { BADRESP } from 'dns';
 
 export interface IHomePageElements {
 	SearchBar: IElement;
@@ -12,6 +13,9 @@ export interface IHomePageElements {
 	LikeLink: IElement;
 	JustNow: IReferenceElement;
 	ProfileIcon: IElement;
+	Poll: IElement;
+	PollOptionOne: IElement;
+	PollOptionTwo: IElement;
 }
 
 export class HomePageElements implements IHomePageElements {
@@ -65,6 +69,18 @@ export class HomePageElements implements IHomePageElements {
 	readonly ProfileIcon: IElement = {
 		selector: 'div[data-click="profile_icon"]'
 	}
+
+	readonly Poll: IElement = {
+		selector: 'div[data-tooltip-content="Poll"]'
+	}
+
+	readonly PollOptionOne: IElement = {
+		selector: 'input[placeholder="Option 1"]'
+	}
+
+	readonly PollOptionTwo: IElement = {
+		selector: 'input[placeholder="Option 2"]'
+	}
 }
 
 export class HomePage {
@@ -99,6 +115,20 @@ export class HomePage {
 		let reference = date.getTime().toString().substring(0, 10);
 		BrowserHelper.waitForVisible(myPageElements.StatusBoxInput)
 			.setValue(myPageElements.StatusBoxInput, message)
+			.click(myPageElements.PostStatus, myPageElements.LikeLink.selector);
+	}
+
+	addAPoll = (data): void => {
+		const { myPageElements } = this;
+		const { pollTitle, pollOptionOne, pollOptionTwo } = data;
+
+		this.selectStatusBox();
+		browser.pause(5000); // Hack to let the react view completely enabled - makes me very sad
+		BrowserHelper.moveToObject(myPageElements.Poll, myPageElements.Poll.selector)
+			.click(myPageElements.Poll, myPageElements.PollOptionOne.selector)
+			.setValue(myPageElements.StatusBoxInput, pollTitle)
+			.setValue(myPageElements.PollOptionOne, pollOptionOne)
+			.setValue(myPageElements.PollOptionTwo, pollOptionTwo)
 			.click(myPageElements.PostStatus, myPageElements.LikeLink.selector);
 	}
 }

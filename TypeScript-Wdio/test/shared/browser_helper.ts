@@ -142,6 +142,11 @@ export namespace BrowserHelper {
 		const environmentData = new EnvironmentData();
 		 browser.moveToObject(element.selector);
 		 browser.waitForVisible(waitForSelector, environmentData.timeout);
+		 return BrowserHelper;
 	}
-}
+
+	export function hasFocus(element: IElement) {
+		return browser.hasFocus(element.selector);
+	}
+} 
 
