@@ -38,7 +38,5 @@ export class WelcomePage {
 
 	clickLogin = (nextPage): void => {
 		BrowserHelper.click(this.myPageElements.Login, nextPage);
-	}
-	
-	
+	}	
 }

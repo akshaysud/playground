@@ -2,7 +2,6 @@ import { ChatBoxElements, ChatBox, ChatBoxAssertions } from '../pages/common-com
 import { FriendProfilePageElements, FriendProfilePage, FriendProfilePageAssertions } from '../pages/common-components/friend-profile/friend_profile';
 import { BrowserHelper, IElement, IReferenceElement } from '../shared/browser_helper';
 
-
 export interface ICommonElements {
 	React: IElement;
 	RemoveReaction: IElement;
@@ -101,7 +100,6 @@ export class CommonComponents {
 
 	removeReaction = () => {
 		const { myPageElements } = this;
-
 		BrowserHelper.click(myPageElements.RemoveReaction, myPageElements.React.selector);
 	}
 }

@@ -32,5 +32,4 @@ describe('React to post', () => {
 		console.log('Cleaning up profile');
 		common.removeReaction();
 	});
-
 });
