@@ -44,7 +44,6 @@ npm run tests
 http://webdriver.io/
 
 # To-do 
-1. Post a poll - In Progress
-2. Vote on the poll 
-3. Post a photo 
-4. Post an album 
+1. Vote on the poll - In Progress  
+2. Post a photo 
+3. Post an album 
