@@ -5,11 +5,12 @@ import { BrowserHelper, IElement, IReferenceElement } from '../shared/browser_he
 
 export interface ICommonElements {
 	React: IElement;
+	RemoveReaction: IElement;
 	Like: IElement;
 	Love: IElement;
 	Haha: IElement;
 	Sad: IElement;
-	Angry: IElement;	
+	Angry: IElement;
 }
 
 enum Reactions {
@@ -24,6 +25,10 @@ export class CommonElements implements ICommonElements {
 
 	readonly React: IElement = {
 		selector: '[data-testid="fb-ufi-likelink"]'
+	};
+
+	readonly RemoveReaction: IElement = {
+		selector: '[data-testid="fb-ufi-unlikelink"]'
 	};
 
 	readonly Like: IElement = {
@@ -70,7 +75,6 @@ export class CommonComponents {
 			switch (reaction.toLocaleLowerCase()) {
 
 				case 'like':
-				BrowserHelper.click(myPageElements.Like, myPageElements.React.selector);
 				break;
 
 				case 'love':
@@ -90,8 +94,24 @@ export class CommonComponents {
 				break;
 
 				default: 
-				throw new Error('You messed up :(')
+				throw new Error('You messed up :(');
 			}
 		}
+	}
+
+	removeReaction = () => {
+		const { myPageElements } = this;
+
+		BrowserHelper.click(myPageElements.RemoveReaction, myPageElements.React.selector);
+	}
+}
+
+export class CommonComponentsAssertions {
+
+	myPageElements: ICommonElements = new CommonElements(); 
+
+	verifyReactionIsRecorded = () => {
+
+		expect(BrowserHelper.isVisible(this.myPageElements.RemoveReaction))
 	}
 }
