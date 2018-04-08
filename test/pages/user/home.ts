@@ -27,7 +27,7 @@ export class HomePageElements implements IHomePageElements {
 		selector: 'a[data-testid="left_nav_item_News Feed"]'
 	}
 
-	//Facebook changed the ID's so need to use Xpath for now - working on a better fix
+	//Facebook changed the ID's so need to use Xpath for now - working on a better fix :)
 	readonly StatusBox: IElement = {
 		selector: '//*[@id="rc.u_fetchstream_1_3"]/div[1]/span[1]/a'
 	};
