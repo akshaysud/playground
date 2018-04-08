@@ -7,24 +7,25 @@
 		"@types/bluebird": "3.5.16",
 		"@types/chance": "^0.7.33",
 		"@types/jasmine": "^2.5.53",
+		"@types/moment": "2.13.0",
 		"@types/request-promise": "4.1.38",
 		"@types/webdriverio": "^4.8.0",
-		"@types/moment": "2.13.0",
 		"bluebird": "3.5.0",
 		"chance": "^1.0.10",
+		"chromedriver": "^2.37.0",
 		"fs": "0.0.1-security",
 		"mkdirp": "^0.5.1",
+		"moment": "2.18.1",
 		"path": "^0.12.7",
 		"request": "^2.83.0",
 		"request-promise": "4.2.2",
 		"rimraf": "^2.6.1",
-		"selenium-standalone": "^6.8.0",
+		"selenium-standalone": "^6.13.0",
 		"tslint": "^5.5.0",
 		"typings": "^2.1.1",
 		"wdio-jasmine-framework": "^0.3.1",
 		"wdio-spec-reporter": "^0.1.0",
-		"webdriverio": "^4.10.1",
-		"moment": "2.19.3"
+		"webdriverio": "4.10.1"
 	},
 	"scripts": {
 		"compile": "tsc",
@@ -36,6 +37,7 @@
 		"tests": "npm run compile && npm run all_acceptance"
 	},
 	"devDependencies": {
-		"typescript": "^2.4.2"
+		"typescript": "^2.4.2",
+		"wdio-chromedriver-service": "~0.1"
 	}
 }

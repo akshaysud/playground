@@ -1,7 +1,49 @@
-# Playground
-Welcome to Akshay's playground. This is where I try all the automated tests/frameworks. The intent of this repo is for everyone to learn about test automation. Please feel free to add comments/feedback - I <3 feedback.
+# Getting started
 
-Standard contribution rules apply.
+1.  Install Node.JS (version 8 or above)
+    http://nodejs.org (*Useful link* - https://stackoverflow.com/questions/11284634/upgrade-nodejs-to-the-latest-version-on-mac-os )
+1.  Install Java SE Development (version 1.8 or above)
+    http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
+	`Useful troubleshooting link` - https://stackoverflow.com/questions/18007804/cant-uninstall-java-7-jdk-on-mac-os-x-mountain-lion-10-8-4
+1.	Install typescript globally `npm install -g typescript`
+1.  `npm install`
+1.	Install selenium drivers `npm run selenium -- install`
+1.	Start selenium `npm run selenium -- start`
+1.	Test if the setup works my running `npm run tests`
 
-# Next Project 
-Integrating with Metlink API - watch this space 
+*Note* - For test data, please enter your username and password in test_data.ts:
+
+`const data = {
+			email: 'xxxxx',
+			password: 'xxxxx',
+		}
+`
+
+# Setting up Selenium Grid (*Optional*)
+
+1.	`npm run selenium-hub`
+1.	Open another terminal instance and run `npm run selenium-node`
+1.	Test if the grid is running successfully by opening http://localhost:4444/grid/console
+
+# Running tests
+
+### To run a specific test
+
+```bash
+npm run test -- <path-to-test.js>
+```
+
+### To all acceptance tests
+
+```bash
+npm run tests
+```
+
+# WebdriverIO doco
+
+http://webdriver.io/
+
+# To-do 
+1. Add activity/feeling - In Progress  
+2. Post a photo 
+3. Post an album 
