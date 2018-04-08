@@ -45,5 +45,4 @@ http://webdriver.io/
 
 # To-do 
 1. Add activity/feeling - In Progress  
-2. Post a photo 
-3. Post an album 
+
