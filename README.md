@@ -1,3 +1,6 @@
+# Build Status 
+https://travis-ci.org/akshaysud/playground.svg?branch=master
+
 # Getting started
 
 1.  Install Node.JS (version 8 or above)
