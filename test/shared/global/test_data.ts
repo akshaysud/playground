@@ -25,7 +25,7 @@ export class UserData {
 			chatMessage: 'Automated Message - not sent by human',
 			pollTitle: 'My awesome poll',
 			pollOptionOne: 'To be',
-			pollOptionTwo: 'Or not to be'
+			pollOptionTwo: 'Or not to be travis'
 		}
 
 		console.log(`Test Data: ${JSON.stringify(data)}`);
