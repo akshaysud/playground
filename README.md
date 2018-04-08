@@ -45,4 +45,3 @@ http://webdriver.io/
 
 # To-do 
 1. Add activity/feeling - In Progress  
-
