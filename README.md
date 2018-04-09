@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/akshaysud/playground.svg?branch=master)](https://travis-ci.org/akshaysud/playground)
+[![Travis Status](https://travis-ci.org/akshaysud/playground.svg?branch=master)](https://travis-ci.org/akshaysud/playground)
 
 # Getting started
 
