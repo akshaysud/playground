@@ -20,21 +20,13 @@
 		"request": "^2.83.0",
 		"request-promise": "4.2.2",
 		"rimraf": "^2.6.1",
-<<<<<<< HEAD:package.json
 		"selenium-standalone": "^6.13.0",
-=======
-		"selenium-standalone": "6.8.0",
->>>>>>> Make test run the old sel version:TypeScript-Wdio/package.json
 		"tslint": "^5.5.0",
 		"typings": "^2.1.1",
 		"wdio-jasmine-framework": "^0.3.1",
 		"wdio-spec-reporter": "^0.1.0",
-<<<<<<< HEAD:package.json
 		"webdriverio": "4.10.1"
-=======
-		"webdriverio": "4.10.1",
-		"moment": "2.18.1"
->>>>>>> Make test run the old sel version:TypeScript-Wdio/package.json
+
 	},
 	"scripts": {
 		"compile": "tsc",
