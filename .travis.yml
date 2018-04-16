@@ -17,4 +17,6 @@ install:
 
 script: [
     "npm run compile"
+    "npm run selenium -- install"
+    "npm run selenium -- start"
   ]
