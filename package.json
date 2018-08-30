@@ -26,6 +26,7 @@
 		"wdio-jasmine-framework": "^0.3.1",
 		"wdio-spec-reporter": "^0.1.0",
 		"webdriverio": "4.10.1"
+
 	},
 	"scripts": {
 		"compile": "tsc",

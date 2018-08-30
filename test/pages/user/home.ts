@@ -15,6 +15,8 @@ export interface IHomePageElements {
 	Poll: IElement;
 	PollOptionOne: IElement;
 	PollOptionTwo: IElement;
+	Activity: IElement;
+	ActivityTraggerComponent: IElement;
 }
 
 export class HomePageElements implements IHomePageElements {
@@ -80,6 +82,14 @@ export class HomePageElements implements IHomePageElements {
 	readonly PollOptionTwo: IElement = {
 		selector: 'input[placeholder="Option 2"]'
 	}
+
+	readonly Activity: IElement = {
+		selector: '[data-testid="activity-sprout"]'
+	}
+
+	readonly ActivityTraggerComponent = {
+		selector: '[data-testid="activity-tagger-component"]'
+	}
 }
 
 export class HomePage {
@@ -106,6 +116,8 @@ export class HomePage {
 		const { myPageElements } = this;
 		BrowserHelper.waitForVisible(myPageElements.StatusBox)
 			.click(myPageElements.StatusBox, myPageElements.StatusBoxDialogView.selector);
+
+			browser.debug();
 	}
 
 	postStatusMessage = (message): void => {
@@ -129,6 +141,15 @@ export class HomePage {
 			.setValue(myPageElements.PollOptionOne, pollOptionOne)
 			.setValue(myPageElements.PollOptionTwo, pollOptionTwo)
 			.click(myPageElements.PostStatus, myPageElements.LikeLink.selector);
+	}
+
+	addActivity = (): void => {
+		const { myPageElements } = this;
+
+		this.selectStatusBox();
+		browser.pause(5000); // Hack to let the react view completely enabled - makes me very sad
+		BrowserHelper.moveToObject(myPageElements.Activity, myPageElements.Activity.selector)
+			.click(myPageElements.Activity, myPageElements.ActivityTraggerComponent.selector);			
 	}
 }
 
